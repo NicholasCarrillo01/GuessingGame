@@ -23,7 +23,6 @@ public class Main {
         final int MAX_GUESS_COUNT = 4;
 
 
-
         //        give instructions
         System.out.println("Welcome To the Guessing Game! I'm thinking of a number between 1 and 100. can you figure it out?");
 
@@ -35,7 +34,7 @@ public class Main {
         int guessedNumber;
 
 
-//      try catch to check for invalid input
+        //      try catch to check for invalid input
         try {
 //          do/while will loop through guesses until correct guess given
             do {
@@ -49,21 +48,26 @@ public class Main {
                 if (randomNumber > guessedNumber) {
                     System.out.println("your guess is too low. Guess higher.");
                     numberOfGuesses++;
-                } else if (randomNumber < guessedNumber)
+                } else if (randomNumber < guessedNumber) {
                     System.out.println("your guess is to high guess lower.");
-                numberOfGuesses++;
-                else {
+                    numberOfGuesses++;
+                } else {
                     System.out.println("CONGRATS!!! you guessed my number " + randomNumber + "!!!");
                 }
-            } while (randomNumber != guessedNumber);
+            } while (randomNumber != guessedNumber && numberOfGuesses < MAX_GUESS_COUNT);
 
 
-        } catch (Exception e) {
+        } catch (
+                Exception e)
+
+        {
             System.out.println("please enter an actual number");
+
         }
+    }
 
 
-        //        HOW TO GET A USABLE RANDOM NUMBER
+    //        HOW TO GET A USABLE RANDOM NUMBER
 //        double randomNumber;
 //        randomNumber = Math.random();
 //        System.out.println("the Random Number Is: " + randomNumber);
@@ -81,5 +85,5 @@ public class Main {
 //        System.out.println("The Rounding that we're used to: " + randomNumberRoundedNormally);
 
 
-    }
 }
+
