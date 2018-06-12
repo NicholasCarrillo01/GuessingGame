@@ -18,7 +18,13 @@ public class Main {
 //          initialize our Scanner, so we can take input from user
         Scanner input = new Scanner(System.in);
 
-//        give instructions
+//      set the number of guesses
+        int numberOfGuesses = 0;
+        final int MAX_GUESS_COUNT = 4;
+
+
+
+        //        give instructions
         System.out.println("Welcome To the Guessing Game! I'm thinking of a number between 1 and 100. can you figure it out?");
 
         //       pick a random number
@@ -29,20 +35,32 @@ public class Main {
         int guessedNumber;
 
 
-        do {
-            System.out.println("guess a number between 1 and 100");
-            guessedNumber = input.nextInt();
-            System.out.println("you guessed the number " + guessedNumber);
+//      try catch to check for invalid input
+        try {
+//          do/while will loop through guesses until correct guess given
+            do {
 
-//        compare the guess to the random number
-            if (randomNumber > guessedNumber) {
-                System.out.println("your guess is too low. Guess higher.");
-            } else if (randomNumber < guessedNumber)
-                System.out.println("your guess is to high guess lower.");
-            else {
-                System.out.println("CONGRATS!!! you guessed my number " + randomNumber + "!!!");
-            }
-        } while (randomNumber != guessedNumber);
+                System.out.println("guess a number between 1 and 100");
+                guessedNumber = input.nextInt();
+                System.out.println("you guessed the number " + guessedNumber);
+
+
+                //        compare the guess to the random number
+                if (randomNumber > guessedNumber) {
+                    System.out.println("your guess is too low. Guess higher.");
+                    numberOfGuesses++;
+                } else if (randomNumber < guessedNumber)
+                    System.out.println("your guess is to high guess lower.");
+                numberOfGuesses++;
+                else {
+                    System.out.println("CONGRATS!!! you guessed my number " + randomNumber + "!!!");
+                }
+            } while (randomNumber != guessedNumber);
+
+
+        } catch (Exception e) {
+            System.out.println("please enter an actual number");
+        }
 
 
         //        HOW TO GET A USABLE RANDOM NUMBER
