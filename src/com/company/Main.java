@@ -9,22 +9,42 @@ compare guess to the number
  */
 
 
-
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
         // write your code here
+//          initialize our Scanner, so we can take input from user
+        Scanner input = new Scanner(System.in);
 
-         System.out.println("Welcome To the Guessing Game! I'm thinking of a number between 1 and 100. can you figure it out?");
+//        give instructions
+        System.out.println("Welcome To the Guessing Game! I'm thinking of a number between 1 and 100. can you figure it out?");
 
-//         pick a random number
+
+        //       pick a random number
         int randomNumber = (int) Math.ceil(Math.random() * 100);
         System.out.println(randomNumber);
 
+        //      get the guess from the user
+        int guessedNumber;
+        System.out.println("guess a number between 1 and 100");
+        guessedNumber = input.nextInt();
+        System.out.println("you guessed the number " + guessedNumber);
+
+//        compare the guess to the random number
+        if (randomNumber > guessedNumber) {
+            System.out.println("your guess is too low. Guess higher.");
+        }  else if (randomNumber < guessedNumber)
+            System.out.println("your guess is to high guess lower.");
+           else {
+               System.out.println("CONGRATS!!! you guessed my number " + randomNumber + "!!!");
+        }
 
 
-//        HOW TO GET A USABLE RANDOM NUMBER
+
+
+        //        HOW TO GET A USABLE RANDOM NUMBER
 //        double randomNumber;
 //        randomNumber = Math.random();
 //        System.out.println("the Random Number Is: " + randomNumber);
@@ -40,10 +60,6 @@ public class Main {
 //
 //        int randomNumberRoundedNormally = (int) Math.round(randomNumberTimesHundred);
 //        System.out.println("The Rounding that we're used to: " + randomNumberRoundedNormally);
-
-
-
-
 
 
     }
